@@ -1,3 +1,3 @@
 import numpy as np
 
-print("Hello Word")
+print("Hello World")
