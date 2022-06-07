@@ -24,10 +24,18 @@ class Citizen:
         + "\n Wisdom: " + str(self.wis)
         + "\n Charisma: " + str(self.cha))
 
-def growth(c1,c2,x):
+def growth(c1,c2):
+    indices = random.sample(range(len(c1.l)),int(len(c1.l)/2))
+    newpeepo = c1.l.copy()
+    for i in range(int(len(c1.l))):
+        if i in indices:
+            newpeepo[i]= c2.l[i]
+    return Citizen(newpeepo)
+
+
+def growth_old(c1,c2,x):
     return Citizen(list(c1.l[0:x] + c2.l[x:len(c1.l)]))
 
-    
 
 
 l = [10,12,8,10,12,8]
@@ -40,10 +48,22 @@ c2 = Citizen(l)
 
 random.randint(0, 5)
 
-c4 = growth(c1,c2,random.randint(0, 5))
+c3 = growth_old(c1,c2,random.randint(0, 5))
+c3.l
 
+c4 = growth(c1,c2)
 c4.l
 
+
+'''
+
+Learning material
+
+'''
+
+'''
+two list multiplication
+'''
 list1 = [1, 2, 3]
 list2 = [4, 5, 6]
 
