@@ -32,6 +32,6 @@ c2 = Citizen(l)
 
 random.randint(0, 5)
 
-c3 = growth(c1,c2,random.randint(0, 5))
+c4 = growth(c1,c2,random.randint(0, 5))
 
-c3.l
+c4.l
