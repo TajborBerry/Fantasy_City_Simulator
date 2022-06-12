@@ -13,7 +13,10 @@ class Citizen:
         self.childlist = []
         self.parent = parent
         self.FirstName = FirstName
-        self.FamilyName = FamilyName     
+        self.FamilyName = FamilyName
+        self.partner = None
+        self.relationship = False
+        self.married = False
     def statblock(self):
         print(" Strength: " + str(self.str) 
         + "\n Dexterity: " + str(self.dex)
@@ -23,21 +26,31 @@ class Citizen:
         + "\n Charisma: " + str(self.cha))
     def childlistadd(self,child):
         self.childlist.append(child)
+    def __str__(self):
+        return str(self.FirstName)+ " " + str(self.FamilyName)
     def print(self):
         return str(self.FirstName)+ " " + str(self.FamilyName)
-    
+    def selectmate(self,c1,married = False):
+        self.partner = c1
+        c1.partner = self
+        self.Relationship = True
+        c1.Relationship = True
+        if married:
+            self.married = True
+            c1.married = True
+    def mating(self,c1):
+        if self.Relationship:
+            indices = random.sample(range(len(c1.l)),int(len(c1.l)/2))
+            newpeepo = c1.l.copy()
+            for i in range(int(len(c1.l))):
+                if i in indices:
+                    newpeepo[i]= c2.l[i]
+            child = Citizen(newpeepo,parent=[c1.print(),c2.print()])        
+            self.childlistadd(child)
+            c1.childlistadd(child)
+            return child
 
-def mating(c1,c2):
-    indices = random.sample(range(len(c1.l)),int(len(c1.l)/2))
-    newpeepo = c1.l.copy()
-    for i in range(int(len(c1.l))):
-        if i in indices:
-            newpeepo[i]= c2.l[i]
-    return Citizen(newpeepo,parent=[c1.print(),c2.print()])
 
-
-def mating_old(c1,c2,x):
-    return Citizen(list(c1.l[0:x] + c2.l[x:len(c1.l)]))
 
 
 
@@ -57,8 +70,10 @@ c3.l
 c4 = mating(c1,c2)
 c4.l
 
-c1.childlistadd(print(c4))
-c2.childlistadd(print(c4))
+c1.childlistadd(c4.print())
+c2.childlistadd(c4.print())
+
+
 
 
 '''
@@ -74,3 +89,20 @@ list1 = [1, 2, 3]
 list2 = [4, 5, 6]
 
 products = [a * b for a, b in zip(list1, list2)]
+
+
+
+'''
+Old outdated stuff
+'''
+def mating(c1,c2):
+    indices = random.sample(range(len(c1.l)),int(len(c1.l)/2))
+    newpeepo = c1.l.copy()
+    for i in range(int(len(c1.l))):
+        if i in indices:
+            newpeepo[i]= c2.l[i]
+    return Citizen(newpeepo,parent=[c1.print(),c2.print()])
+
+
+def mating_old(c1,c2,x):
+    return Citizen(list(c1.l[0:x] + c2.l[x:len(c1.l)]))
