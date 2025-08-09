@@ -1,0 +1,26 @@
+# config/run_config.yaml
+
+# General settings
+city_lore_file: "data/city_lore.txt"   # Static city background
+openai_model: "gpt-4o-mini"            # Model to use for all agents
+temperature: 0.7                       # Creativity level
+max_tokens: 500                        # Output length cap
+
+# Which agents to run
+agents:
+  story_teller: true
+  stat_estimator: true
+  name_creator: true
+  item_creator: false          # optional
+  tales_teller: false          # optional
+  family_history: false        # optional
+
+# Output settings
+save_outputs: true
+output_format: "json"          # or markdown
+output_folder: "outputs/"
+
+# D&D-specific constraints
+stat_range:
+  min: 6
+  max: 18

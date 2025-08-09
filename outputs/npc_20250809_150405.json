@@ -1,0 +1,12 @@
+{
+  "story": "Born in the bustling harbor district, our NPC grew up watching ships arrive from distant lands. They learned early how to negotiate and survive in a city that prized hard work.",
+  "stats": {
+    "Strength": 12,
+    "Dexterity": 14,
+    "Constitution": 13,
+    "Intelligence": 10,
+    "Wisdom": 11,
+    "Charisma": 15
+  },
+  "name": "Lira Windharbor"
+}
