@@ -6,6 +6,10 @@ openai_model: "gpt-4o-mini"            # Model to use for all agents
 temperature: 0.7                       # Creativity level
 max_tokens: 500                        # Output length cap
 
+# Test environment
+use_mock_data: false                  # For test runs
+mock_data_file: "tests/fixtures/sample_story.json" # For test runs
+
 # Which agents to run
 agents:
   story_teller: true

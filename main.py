@@ -30,6 +30,10 @@ city_lore = CITY_LORE_PATH.read_text()
 # --- 3) Run agents based on config ---
 npc_data = {}
 
+if config.get("use_mock_data"):
+    npc_data.update(json.loads(Path(config["mock_data_file"]).read_text()))
+
+
 if config["agents"]["story_teller"]:
     storyteller = StoryTeller(model=config["openai_model"],
                               temperature=config["temperature"],
