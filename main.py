@@ -5,9 +5,7 @@ import datetime
 import json
 
 # Import your agents
-from agents.story_teller import StoryTeller
-from agents.stat_estimator import StatEstimator
-from agents.name_creator import NameCreator
+from agents import StoryTeller, StatEstimator, NameCreator
 
 # --- 1) Load config and API key ---
 CONFIG_PATH = Path("config/run_config.yaml")
@@ -30,6 +28,7 @@ city_lore = CITY_LORE_PATH.read_text()
 # --- 3) Run agents based on config ---
 npc_data = {}
 
+# If want to use test environemnt to save on time and tokens.
 if config.get("use_mock_data"):
     npc_data.update(json.loads(Path(config["mock_data_file"]).read_text()))
 
