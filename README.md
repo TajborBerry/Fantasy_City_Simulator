@@ -65,8 +65,8 @@ Fantasy_City_Simulator/
 
 1. **Clone the repo**  
    ```bash
-   git clone https://github.com/yourusername/fantasy-city-npc-generator.git
-   cd fantasy-city-npc-generator
+   git clone https://github.com/TajborBerry/Fantasy_City_Simulator.git
+   cd Fantasy_City_Simulator
    ```
 
 2. **Install dependencies**  
