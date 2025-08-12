@@ -34,10 +34,9 @@ if config.get("use_mock_data"):
 
 
 if config["agents"]["story_teller"]:
-    storyteller = StoryTeller(model=config["openai_model"],
-                              temperature=config["temperature"],
-                              max_tokens=config["max_tokens"])
+    storyteller = StoryTeller(CONFIG_PATH, API_KEY_PATH)
     npc_data["story"] = storyteller.run(city_lore)
+
 
 if config["agents"]["stat_estimator"]:
     stat_estimator = StatEstimator(model=config["openai_model"],

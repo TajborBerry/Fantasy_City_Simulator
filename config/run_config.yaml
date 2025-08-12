@@ -19,6 +19,11 @@ agents:
   tales_teller: false          # optional
   family_history: false        # optional
 
+story_teller:
+  openai_model: "gpt-4o-mini"
+  temperature: 0.7
+  max_tokens: 500
+
 # Output settings
 save_outputs: true
 output_format: "json"          # or markdown
