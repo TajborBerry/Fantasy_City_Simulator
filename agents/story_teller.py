@@ -49,7 +49,15 @@ class StoryTeller:
                     temperature=self.temperature,
                     max_tokens=self.max_tokens,
                     messages=[
-                        {"role": "system", "content": "You are a helpful fantasy writing assistant."},
+                        {
+                            "role": "system",
+                            "content": (
+                                "You are a helpful fantasy writing assistant. "
+                                "Return ONLY valid JSON with the following structure: "
+                                '{"story": "A short backstory for the NPC."} '
+                                "Do not include any extra text, commentary, or formatting."
+                            )
+                        },
                         {"role": "user", "content": prompt}
                     ]
                 )

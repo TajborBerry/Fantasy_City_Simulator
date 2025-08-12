@@ -4,7 +4,7 @@
 city_lore_file: "data/city_lore.txt"   # Static city background
 openai_model: "gpt-4o-mini"            # Model to use for all agents
 temperature: 0.7                       # Creativity level
-max_tokens: 500                        # Output length cap
+max_tokens: 200                        # Output length cap
 
 # Test environment
 use_mock_data: false                  # For test runs
@@ -22,7 +22,7 @@ agents:
 story_teller:
   openai_model: "gpt-4o-mini"
   temperature: 0.7
-  max_tokens: 500
+  max_tokens: 200
 
 # Output settings
 save_outputs: true
