@@ -25,17 +25,10 @@ class StoryTeller:
 
         City description:
         {city_lore}
-
-        Output your answer as a JSON object with this structure:
-        {{
-            "story": "short origin story",
-            "tags": ["list of personality or role tags"],
-            "mentions_items": ["list of magic items mentioned, empty if none"]
-        }}
         """
 
         response_text = self._call_api(prompt)
-        return self.extract_json(response_text)
+        return {"story": response_text}
 
     def _call_api(self, prompt: str) -> str:
         """Call the OpenAI API with simple retry logic."""
@@ -53,9 +46,6 @@ class StoryTeller:
                             "role": "system",
                             "content": (
                                 "You are a helpful fantasy writing assistant. "
-                                "Return ONLY valid JSON with the following structure: "
-                                '{"story": "A short backstory for the NPC."} '
-                                "Do not include any extra text, commentary, or formatting."
                             )
                         },
                         {"role": "user", "content": prompt}
@@ -67,18 +57,6 @@ class StoryTeller:
                     time.sleep(1.5 * (attempt + 1))  # backoff
                 else:
                     raise e
-
-    @staticmethod
-    def extract_json(text: str) -> dict:
-        """Extract JSON from model output, even if extra text is present."""
-        try:
-            start = text.find("{")
-            end = text.rfind("}") + 1
-            return json.loads(text[start:end])
-        except Exception:
-            # Fall back to direct parse
-            return json.loads(text)
-
 
 if __name__ == "__main__":
     # Example usage

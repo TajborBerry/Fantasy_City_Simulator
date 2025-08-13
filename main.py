@@ -46,10 +46,8 @@ if config["agents"]["stat_estimator"]:
     npc_data["stats"] = stat_estimator.run(npc_data.get("story", ""))
 
 if config["agents"]["name_creator"]:
-    name_creator = NameCreator(model=config["openai_model"],
-                               temperature=config["temperature"],
-                               max_tokens=config["max_tokens"])
-    npc_data["name"] = name_creator.run(npc_data.get("story", ""), npc_data.get("stats", {}))
+    name_creator = NameCreator(CONFIG_PATH, API_KEY_PATH)
+    npc_data["name"] = name_creator.run(npc_data.get("story", ""))
 
 # --- 4) Save output ---
 if config["save_outputs"]:

@@ -24,6 +24,11 @@ story_teller:
   temperature: 0.7
   max_tokens: 200
 
+name_creator:
+  openai_model: "gpt-4o-mini"
+  temperature: 0.7
+  max_tokens: 200
+
 # Output settings
 save_outputs: true
 output_format: "json"          # or markdown
